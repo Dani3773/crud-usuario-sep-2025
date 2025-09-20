@@ -9,11 +9,26 @@ import dev.daniel.crudusuariosep2025.service.UsuarioService;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         UsuarioRepository repo = new UsuarioRepository();
         UsuarioService service = new UsuarioService(repo);
+
+        System.out.println("Repo concreto: " + repo.getClass().getName());
+        try (var c = dev.daniel.crudusuariosep2025.infra.Database.getConnection();
+             var st = c.createStatement();
+             var rs = st.executeQuery("SELECT version()")) {
+            rs.next();
+            System.out.println("DB PING OK: " + rs.getString(1));
+        } catch (Exception e) {
+            System.out.println("DB PING FALHOU:");
+            e.printStackTrace();
+        }
+
 
         while (true) {
             System.out.println("\n===== CRUD Usuários =====");

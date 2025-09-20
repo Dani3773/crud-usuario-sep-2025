@@ -1,0 +1,6 @@
+dev\daniel\crudusuariosep2025\app\Main.class
+dev\daniel\crudusuariosep2025\repository\UsuarioRepositoryMemory.class
+dev\daniel\crudusuariosep2025\infra\Database.class
+dev\daniel\crudusuariosep2025\repository\UsuarioRepository.class
+dev\daniel\crudusuariosep2025\service\UsuarioService.class
+dev\daniel\crudusuariosep2025\domain\Usuario.class

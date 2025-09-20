@@ -7,7 +7,6 @@ import dev.daniel.crudusuariosep2025.domain.Usuario;
 import dev.daniel.crudusuariosep2025.repository.UsuarioRepository;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.Locale;
 
@@ -19,7 +18,10 @@ public class UsuarioService {
             Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
 
     public UsuarioService(UsuarioRepository repository) {
-        this.repository = Objects.requireNonNull(repository);
+        if (repository == null) {
+            throw new IllegalArgumentException("repository == null");
+        }
+        this.repository = repository;
     }
 
     private boolean isBlank(String s) {
